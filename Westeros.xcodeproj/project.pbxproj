@@ -28,6 +28,11 @@
 		57B03C7D2205EC970014AB51 /* Sigil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B03C7C2205EC970014AB51 /* Sigil.swift */; };
 		57B03C7F2205EF080014AB51 /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B03C7E2205EF080014AB51 /* PersonTests.swift */; };
 		57B03C812205EF460014AB51 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B03C802205EF460014AB51 /* Person.swift */; };
+		57D90D1A221C72A400A49040 /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D19221C72A400A49040 /* SeasonTests.swift */; };
+		57D90D1C221C72DE00A49040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D1B221C72DE00A49040 /* Season.swift */; };
+		57D90D1E221C771900A49040 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D1D221C771900A49040 /* EpisodeTests.swift */; };
+		57D90D20221C782800A49040 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D1F221C782800A49040 /* Episode.swift */; };
+		57D90D22221C87E400A49040 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D21221C87E400A49040 /* Date+Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		57B03C7C2205EC970014AB51 /* Sigil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sigil.swift; sourceTree = "<group>"; };
 		57B03C7E2205EF080014AB51 /* PersonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 		57B03C802205EF460014AB51 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		57D90D19221C72A400A49040 /* SeasonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTests.swift; sourceTree = "<group>"; };
+		57D90D1B221C72DE00A49040 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		57D90D1D221C771900A49040 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
+		57D90D1F221C782800A49040 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		57D90D21221C87E400A49040 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 			children = (
 				57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */,
 				576BC4FB221B2DAC00053F98 /* Constants.swift */,
+				57D90D21221C87E400A49040 /* Date+Format.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -158,6 +169,8 @@
 				57B03C7A2205EC2D0014AB51 /* SigilTests.swift */,
 				57B03C7E2205EF080014AB51 /* PersonTests.swift */,
 				57710A0E220B705C005E5708 /* RepositoryTests.swift */,
+				57D90D19221C72A400A49040 /* SeasonTests.swift */,
+				57D90D1D221C771900A49040 /* EpisodeTests.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -169,6 +182,8 @@
 				57981B6C22039E59000BE391 /* House.swift */,
 				57B03C7C2205EC970014AB51 /* Sigil.swift */,
 				57B03C802205EF460014AB51 /* Person.swift */,
+				57D90D1B221C72DE00A49040 /* Season.swift */,
+				57D90D1F221C782800A49040 /* Episode.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -280,10 +295,13 @@
 			files = (
 				57710A12220B7132005E5708 /* Repository.swift in Sources */,
 				576BC4FC221B2DAC00053F98 /* Constants.swift in Sources */,
+				57D90D22221C87E400A49040 /* Date+Format.swift in Sources */,
 				57710A0D220B5510005E5708 /* UIViewController+Navigation.swift in Sources */,
 				57307B2B220A481900A70843 /* HouseDetailViewController.swift in Sources */,
+				57D90D1C221C72DE00A49040 /* Season.swift in Sources */,
 				57B03C7D2205EC970014AB51 /* Sigil.swift in Sources */,
 				57867B35220CE66200741B04 /* MemberListViewController.swift in Sources */,
+				57D90D20221C782800A49040 /* Episode.swift in Sources */,
 				57867B31220CCDC200741B04 /* HouseListViewController.swift in Sources */,
 				57981B6D22039E59000BE391 /* House.swift in Sources */,
 				57981B48220392A0000BE391 /* AppDelegate.swift in Sources */,
@@ -296,10 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D90D1A221C72A400A49040 /* SeasonTests.swift in Sources */,
 				57B03C7B2205EC2D0014AB51 /* SigilTests.swift in Sources */,
 				57B03C7F2205EF080014AB51 /* PersonTests.swift in Sources */,
 				57981B6822039C38000BE391 /* HouseTests.swift in Sources */,
 				57710A0F220B705C005E5708 /* RepositoryTests.swift in Sources */,
+				57D90D1E221C771900A49040 /* EpisodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
