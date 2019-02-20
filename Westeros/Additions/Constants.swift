@@ -8,6 +8,14 @@
 
 import Foundation
 
+// MARK: - Notification
 let SELECTED_HOUSE_NOTIFICATION = "SelectedHouseNotification"
 let HOUSE_KEY = "HouseKey"
+
+// MARK: - UserDefaults
 let LAST_HOUSE_KEY = "LastHouseKey"
+
+// MARK: - Formats
+let FORMAT_DATE_TO_SHOW = "EEEE, MMM d, yyyy"
+let FORMAT_TO_PARSE_DATE = "yyyy-MM-dd"
+

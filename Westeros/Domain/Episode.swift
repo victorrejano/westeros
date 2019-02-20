@@ -20,6 +20,9 @@ final class Episode {
         self.name = name
         _airDate = airDate
         self.season = season
+        
+        // Add episode to season
+        season.add(episode: self)
     }
 }
 

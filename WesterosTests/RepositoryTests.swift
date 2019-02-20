@@ -11,16 +11,21 @@ import XCTest
 
 class RepositoryTests: XCTestCase {
 
+    // MARK: Properties
     var houses: [House]!
     var house: House!
+    var seasons: [Season]!
+    var season: Season!
     
     override func setUp() {
         houses = Repository.local.houses
-        house = houses[0]
+        house = houses.first
+        
+        seasons = Repository.local.seasons
+        season = seasons.first
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testLocalRepositoryExistence() {
@@ -57,5 +62,21 @@ class RepositoryTests: XCTestCase {
     
     func testLocalRepositoryPersonsSorted() {
         XCTAssertEqual(house.members, house.members.sorted())
+    }
+    
+    func testLocalRepositorySeasonsExistence() {
+        XCTAssertNotNil(season)
+    }
+    
+    func testLocalRepositorySeasonsSorted() {
+        XCTAssertGreaterThan(seasons.last!, seasons.first!)
+    }
+    
+    func testLocalRepositorySeasonsFiltered() {
+        let filteredSeasons = Repository.local.seasons {
+            $0.name == "Season One"
+        }
+        
+        XCTAssertEqual(filteredSeasons.count, 1)
     }
 }

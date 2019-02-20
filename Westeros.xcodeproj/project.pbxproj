@@ -33,6 +33,7 @@
 		57D90D1E221C771900A49040 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D1D221C771900A49040 /* EpisodeTests.swift */; };
 		57D90D20221C782800A49040 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D1F221C782800A49040 /* Episode.swift */; };
 		57D90D22221C87E400A49040 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D21221C87E400A49040 /* Date+Format.swift */; };
+		57D90D24221C8D4A00A49040 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D90D23221C8D4A00A49040 /* String+Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		57D90D1D221C771900A49040 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
 		57D90D1F221C782800A49040 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		57D90D21221C87E400A49040 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		57D90D23221C8D4A00A49040 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */,
 				576BC4FB221B2DAC00053F98 /* Constants.swift */,
 				57D90D21221C87E400A49040 /* Date+Format.swift */,
+				57D90D23221C8D4A00A49040 /* String+Date.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				57867B35220CE66200741B04 /* MemberListViewController.swift in Sources */,
 				57D90D20221C782800A49040 /* Episode.swift in Sources */,
 				57867B31220CCDC200741B04 /* HouseListViewController.swift in Sources */,
+				57D90D24221C8D4A00A49040 /* String+Date.swift in Sources */,
 				57981B6D22039E59000BE391 /* House.swift in Sources */,
 				57981B48220392A0000BE391 /* AppDelegate.swift in Sources */,
 				57867B2D220CAD8700741B04 /* WikiViewController.swift in Sources */,
