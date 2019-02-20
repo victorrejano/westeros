@@ -75,55 +75,54 @@ extension LocalFactory: SeasonFactory {
         
         let episodesRaw = [
             [
-                ("Winter is coming", "2011-04-17"),
-                ("Fire and Blood", "2011-06-19")
+                ("Winter is coming", "2011-04-17", "Lord Stark is troubled by reports from a Night's Watch deserter; King Robert and the Lannisters arrive at Winterfell; Viserys Targaryen forges a new alliance."),
+                ("Fire and Blood", "2011-06-19", "A new king rises in the North; a Khaleesi finds new hope.")
             ],
             [
-                ("The North Remembers", "2012-04-01"),
-                ("Valar Morghulis", "2012-06-03")
+                ("The North Remembers", "2012-04-01", "Tyrion arrives to save Joffrey's crown; Daenerys searches for allies and water in the Red Waste; Jon Snow faces the wilderness beyond the Wall."),
+                ("Valar Morghulis", "2012-06-03", "Arya receives a gift from Jaqen; Dany goes to a strange place; Jon proves himself.")
             ],
             [
-                ("Valar Dohaeris", "2013-03-31"),
-                ("Mhysa", "2013-06-09")
+                ("Valar Dohaeris", "2013-03-31", "Jon is tested by the wildling king; Tyrion asks for his reward; Daenerys sails into Slaver's Bay."),
+                ("Mhysa", "2013-06-09", "Joffrey challenges Tywin; Dany waits to see if she is a conqueror or a liberator.")
             ],
             [
-                ("Two Swords", "2014-04-06"),
-                ("The Children", "2014-06-15")
+                ("Two Swords", "2014-04-06", "King's Landing prepares for a royal wedding; Dany finds the way to Meereen; the Night's Watch braces for a new threat."),
+                ("The Children", "2014-06-15", "Dany faces some harsh realities; Tyrion sees the truth of his situation.")
             ],
             [
-                ("The Wars to come", "2015-04-12"),
-                ("Mothers mercy", "2015-06-14")
+                ("The Wars to come", "2015-04-12", "Tyrion learns of a conspiracy; Jon is caught between two kings."),
+                ("Mothers mercy", "2015-06-14", "Stannis marches; Dany is surrounded by strangers; Cersei seeks forgiveness; Jon is challenged.")
             ],
             [
-                ("The Red Woman", "2016-04-24"),
-                ("The Winds of Winter", "2016-06-26")
+                ("The Red Woman", "2016-04-24", "Jon Snow is dead; Daenerys meets a strong man; Cersei sees her daughter again."),
+                ("The Winds of Winter", "2016-06-26", "Cersei faces a day of reckoning.")
             ],
             [
-                ("Dragonstone", "2017-07-16"),
-                ("The Dragon and the Wolf", "2017-08-27")
+                ("Dragonstone", "2017-07-16", "Arya makes a lasting impression; the Hound sees a vision; Daenerys comes ashore."),
+                ("The Dragon and the Wolf", "2017-08-27", "King's Landing hosts a gathering; Sansa breaks ties.")
             ]
         ]
         
         let seasonsRaw = [
-            ("Season One", "2011-04-17"),
-            ("Season Two", "2012-04-01"),
-            ("Season Three", "2013-03-31"),
-            ("Season Four", "2014-04-06"),
-            ("Season Five", "2015-04-12"),
-            ("Season Six", "2016-04-24"),
-            ("Season Seven", "2017-07-16")
+            "Season One",
+            "Season Two",
+            "Season Three",
+            "Season Four",
+            "Season Five",
+            "Season Six",
+            "Season Seven"
         ]
         
         let result = seasonsRaw.map {
-            (name, date) in
-            Season(name: name, releaseDate: date.toDate!)
+            Season(name: $0)
         }
         
         for (index, item) in result.enumerated() {
         
             episodesRaw[index].forEach {
-                (name, date) in
-                Episode(name: name, airDate: date.toDate!, season: item)
+                (name, date, synopsis) in
+                Episode(name: name, airDate: date.toDate!, synopsis: synopsis, season: item)
             }
         }
         

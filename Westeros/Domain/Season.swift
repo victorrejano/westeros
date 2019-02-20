@@ -14,20 +14,29 @@ final class Season {
     
     // MARK: Properties
     let name: String
-    private let _releaseDate: Date
     private var _episodes: Episodes
     
     // MARK: Initialization
-    init(name: String, releaseDate: Date) {
+    init(name: String) {
         self.name = name
-        _releaseDate = releaseDate
         _episodes = []
     }
 }
 
 extension Season {
+    
+    private var  _releaseDate: Date {
+        return episodes.first?.airDate.toDate ?? Date()
+    }
     var releaseDate: String {
         return _releaseDate.formatted
+    }
+    
+    private var  _finaleDate: Date {
+        return episodes.last?.airDate.toDate ?? Date()
+    }
+    var finaleDate: String {
+        return _finaleDate.formatted
     }
     
     var episodes: [Episode] {
@@ -40,7 +49,7 @@ extension Season {
     
     func add(episode: Episode) {
         guard let season = episode.season,
-                season == self
+            season == self
             else { return }
         
         _episodes.insert(episode)
@@ -55,7 +64,7 @@ extension Season {
 
 extension Season {
     var proxyForEquality: String {
-        return "\(name) \(_releaseDate)"
+        return "\(name) \(releaseDate)"
     }
     
     var proxyForComparison: Date {
@@ -83,6 +92,6 @@ extension Season: Comparable {
 
 extension Season: CustomStringConvertible {
     var description: String {
-        return "\(name) \(_releaseDate)"
+        return "\(name) \(releaseDate)"
     }
 }

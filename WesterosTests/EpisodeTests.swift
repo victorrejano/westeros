@@ -16,7 +16,7 @@ class EpisodeTests: XCTestCase {
     var airDate: Date!
     
     override func setUp() {
-        season = Season(name: "Season 6", releaseDate: Date())
+        season = Season(name: "Season 6")
         
         // Prepare date for comparison
         let dateFormatter = DateFormatter()

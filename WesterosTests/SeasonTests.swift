@@ -20,7 +20,8 @@ class SeasonTests: XCTestCase {
         dateFormatter.dateFormat = "MM-dd-yyyy"
         releaseDate = dateFormatter.date(from: "04-17-2011")
         
-        season = Season(name: "Season 1", releaseDate: releaseDate)
+        season = Season(name: "Season 1")
+        let _ = Episode(name: "Winter is coming", airDate: "2011-04-01".toDate!, season: season)
     }
     
     override func tearDown() {
@@ -32,14 +33,17 @@ class SeasonTests: XCTestCase {
     
     func testSeasonInsertEpisode() {
         // mock episodes
+        
+        let initialNumberOfEpisodes = season.numberOfEpisodes
+        
         let episodeOne = Episode(name: "Winter is coming", airDate: Date(), season: season)
         let episodeTwo = Episode(name: "The Kingsroad", airDate: Date(), season: season)
-        let otherSeasonEpisode = Episode(name: "The Rains of Castemere", airDate: Date(), season: Season(name: "Season 3", releaseDate: Date()))
+        let otherSeasonEpisode = Episode(name: "The Rains of Castemere", airDate: Date(), season: Season(name: "Season 3"))
         
         season.add(episodes: episodeOne, episodeTwo, otherSeasonEpisode)
         
         // Insert only valid episodes
-        XCTAssertEqual(season.numberOfEpisodes, 2)
+        XCTAssertEqual(season.numberOfEpisodes - initialNumberOfEpisodes, 2)
     }
     
     func testSeasonHashable() {
@@ -52,18 +56,18 @@ class SeasonTests: XCTestCase {
         XCTAssertEqual(season,season)
         
         // Equality
-        let equalSeason = Season(name: "Season 1", releaseDate: releaseDate)
+        let equalSeason = Season(name: "Season 1")
         
         XCTAssertEqual(season, equalSeason)
         
         // Not equals
-        let otherSeason = Season(name: "Season 5", releaseDate: Date())
+        let otherSeason = Season(name: "Season 5")
         XCTAssertNotEqual(season, otherSeason)
     }
     
     func testSeasonComparison() {
         
-        let newerSeason = Season(name: "Season 8", releaseDate: Date())
+        let newerSeason = Season(name: "Season 8")
         
         XCTAssertLessThan(season, newerSeason)
     }

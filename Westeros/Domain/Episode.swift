@@ -14,11 +14,13 @@ final class Episode {
     let name: String
     private let _airDate: Date
     weak var season: Season?
+    let synopsis: String
     
     // MARK: Initialization
-    init(name: String, airDate: Date, season: Season) {
+    init(name: String, airDate: Date, synopsis: String = "", season: Season) {
         self.name = name
         _airDate = airDate
+        self.synopsis = synopsis
         self.season = season
         
         // Add episode to season
