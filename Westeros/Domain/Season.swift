@@ -25,18 +25,12 @@ final class Season {
 
 extension Season {
     
-    private var  _releaseDate: Date {
-        return episodes.first?.airDate.toDate ?? Date()
-    }
     var releaseDate: String {
-        return _releaseDate.formatted
+        return episodes.first?.airDate ?? "No episodes added"
     }
     
-    private var  _finaleDate: Date {
-        return episodes.last?.airDate.toDate ?? Date()
-    }
     var finaleDate: String {
-        return _finaleDate.formatted
+        return episodes.last?.airDate ?? "No episodes added"
     }
     
     var episodes: [Episode] {
@@ -68,7 +62,7 @@ extension Season {
     }
     
     var proxyForComparison: Date {
-        return _releaseDate
+        return episodes.first?.airDate.toDate ?? Date()
     }
 }
 

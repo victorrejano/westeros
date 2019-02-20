@@ -19,3 +19,6 @@ let LAST_HOUSE_KEY = "LastHouseKey"
 let FORMAT_DATE_TO_SHOW = "EEEE, MMM d, yyyy"
 let FORMAT_TO_PARSE_DATE = "yyyy-MM-dd"
 
+// MARK: - UITableViewCell Identifiers
+let SEASON_LIST_CELL = "SeasonListCell"
+

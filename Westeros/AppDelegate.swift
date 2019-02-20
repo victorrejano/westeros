@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .red
-        
+        /*
         let houses = Repository.local.houses
         
         let houseListViewController = HouseListViewController(model: houses)
@@ -27,9 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         houseListViewController.delegate = houseDetailViewController
         //houseListViewController.delegate = houseListViewController
-        
+ 
         let splitVC = UISplitViewController()
         splitVC.viewControllers = [houseListViewController.wrappedInNVC(), houseDetailViewController.wrappedInNVC()]
+        */
+        // TODO Seasons detail demo
+        // Repository data
+        let seasons = Repository.local.seasons
+        let seasonListViewController = SeasonListViewController(model: seasons)
+        let seasonDetailViewController = SeasonDetailViewController(model: seasons.first!)
+        
+        // Asign delegate and detail view
+        seasonListViewController.delegate = seasonDetailViewController
+        seasonListViewController.seasonDetailViewController = seasonDetailViewController
+        
+        let splitVC = UISplitViewController()
+        splitVC.viewControllers = [seasonListViewController.wrappedInNVC(), seasonDetailViewController.wrappedInNVC()]
         
         let rootVC = splitVC
  

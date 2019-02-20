@@ -57,6 +57,7 @@ class SeasonTests: XCTestCase {
         
         // Equality
         let equalSeason = Season(name: "Season 1")
+        let _ = Episode(name: "Winter is coming", airDate: "2011-04-01".toDate!, season: equalSeason)
         
         XCTAssertEqual(season, equalSeason)
         
