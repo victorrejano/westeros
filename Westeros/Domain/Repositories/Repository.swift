@@ -47,16 +47,12 @@ extension LocalFactory: HouseFactory {
         
         let targaryenHouse = House(name: "Targaryen", sigil: Sigil(image: UIImage(named: "targaryenSmall")!, description: "Dragon"), words: "Blood and Fire", wikiURL: targaryenURL)
         
-        let arya = Person(name: "Arya", house: starkHouse)
-        let sansa = Person(name: "Sansa", house: starkHouse)
-        let cersei = Person(name: "Cersei", house: lannisterHouse)
-        let jaimie = Person(name: "Jaime", alias: "Kingslayer", house: lannisterHouse)
-        let tyrion = Person(name: "Tyrion", alias: "Gnome", house: lannisterHouse)
-        let daenerys = Person(name: "Daenerys", alias: "Stormborn", house: targaryenHouse)
-        
-        starkHouse.add(persons: arya, sansa)
-        lannisterHouse.add(persons: cersei, jaimie, tyrion)
-        targaryenHouse.add(person: daenerys)
+        let _ = Person(name: "Arya", house: starkHouse)
+        let _ = Person(name: "Sansa", house: starkHouse)
+        let _ = Person(name: "Cersei", house: lannisterHouse)
+        let _ = Person(name: "Jaime", alias: "Kingslayer", house: lannisterHouse)
+        let _ = Person(name: "Tyrion", alias: "Gnome", house: lannisterHouse)
+        let _ = Person(name: "Daenerys", alias: "Stormborn", house: targaryenHouse)
         
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
     }

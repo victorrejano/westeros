@@ -23,37 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .red
-        /*
-        let houses = Repository.local.houses
-        
-        let houseListViewController = HouseListViewController(model: houses)
-        let houseDetailViewController = HouseDetailViewController(model: houseListViewController.lastHouseSelected())
-        
-        houseListViewController.delegate = houseDetailViewController
-        //houseListViewController.delegate = houseListViewController
- 
-        let splitVC = UISplitViewController()
-        splitVC.viewControllers = [houseListViewController.wrappedInNVC(), houseDetailViewController.wrappedInNVC()]
-        */
-        // TODO Seasons detail demo
-        /*
-        // Repository data
-        let seasons = Repository.local.seasons
-        let seasonListViewController = SeasonListViewController(model: seasons)
-        let seasonDetailViewController = SeasonDetailViewController(model: seasons.first!)
-        
-        // Asign delegate and detail view
-        seasonListViewController.delegate = seasonDetailViewController
-        //seasonListViewController.seasonDetailViewController = seasonDetailViewController
-        
-        let splitVC = UISplitViewController()
-        splitVC.viewControllers = [seasonListViewController.wrappedInNVC(), seasonDetailViewController.wrappedInNVC()]
-        
-        let rootVC = splitVC
- 
-        let season = Repository.local.seasons.first
-        let episodeList = EpisodesListViewController(model: season!)*/
         
         // Get data from repository
         let seasons = Repository.local.seasons
@@ -91,7 +60,7 @@ extension AppDelegate: UITabBarControllerDelegate {
             rootViewController.viewControllers = [tabBarController.wrappedInNVC(), houseDetail.wrappedInNVC()]
         } else if viewController == seasonList {
             rootViewController.viewControllers = [
-            tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
+                tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
         }
     }
     
