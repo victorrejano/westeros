@@ -12,7 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var tabBarController: UITabBarController!
+    var seasonList: SeasonListViewController!
+    var houseList: HouseListViewController!
+    var seasonDetail: SeasonDetailViewController!
+    var houseDetail: HouseDetailViewController!
+    var rootViewController: UISplitViewController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -46,12 +51,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitVC.viewControllers = [seasonListViewController.wrappedInNVC(), seasonDetailViewController.wrappedInNVC()]
         
         let rootVC = splitVC
-        */
+ 
         let season = Repository.local.seasons.first
-        let episodeList = EpisodesListViewController(model: season!)
-        window?.rootViewController = episodeList.wrappedInNVC()
+        let episodeList = EpisodesListViewController(model: season!)*/
+        
+        // Get data from repository
+        let seasons = Repository.local.seasons
+        let houses = Repository.local.houses
+        
+        // Instantiate view controllers
+        seasonList = SeasonListViewController(model: seasons)
+        houseList = HouseListViewController(model: houses)
+        
+        tabBarController = UITabBarController()
+        tabBarController.viewControllers = [seasonList, houseList]
+        
+        seasonDetail = SeasonDetailViewController(model: seasons.first!)
+        houseDetail = HouseDetailViewController(model: houses.first!)
+        
+        // Asign delegates
+        tabBarController.delegate = self
+        seasonList.delegate = seasonDetail
+        houseList.delegate = houseDetail
+        
+        // Add views to root controller
+        rootViewController = UISplitViewController()
+        rootViewController.viewControllers = [tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
+        
+        window?.rootViewController = rootViewController
         
         return true
     }
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController == houseList {
+            rootViewController.viewControllers = [tabBarController.wrappedInNVC(), houseDetail.wrappedInNVC()]
+        } else if viewController == seasonList {
+            rootViewController.viewControllers = [
+            tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
+        }
+    }
+    
 }
 

@@ -16,6 +16,7 @@ class SeasonDetailViewController: UIViewController {
             syncModelWithView()
         }
     }
+    var episodesList: EpisodesListViewController?
     
     // MARK: - Outlets
     @IBOutlet weak var seasonNameLabel: UILabel!
@@ -68,7 +69,13 @@ extension SeasonDetailViewController: SeasonListViewControllerDelegate {
 
 extension SeasonDetailViewController {
     @objc func displayEpisodes() {
-        #warning("Implement display episodes")
-        print("Episode list push")
+        if episodesList == nil {
+            episodesList = EpisodesListViewController(model: model)
+            navigationController?.pushViewController(episodesList!, animated: true)
+            return
+        }
+        
+        episodesList?.model = model
+        navigationController?.pushViewController(episodesList!, animated: true)
     }
 }

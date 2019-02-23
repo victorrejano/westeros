@@ -16,7 +16,6 @@ class SeasonListViewController: UITableViewController {
     
     // MARK: Properties
     let model: [Season]
-    var seasonDetailViewController: SeasonDetailViewController?
     weak var delegate: SeasonListViewControllerDelegate?
     
     // MARK: Initialization
@@ -76,5 +75,17 @@ extension SeasonListViewController {
         
         // Inform delegate
         delegate?.didSelectSeason(self, model: selectedModel)
+        
+        // notify event
+        notifyDidSelectSeason(selected: selectedModel)
+    }
+    
+    private func notifyDidSelectSeason(selected: Season) {
+        
+        let notificationCenter = NotificationCenter.default
+        let userInfo = [SEASON_KEY:selected]
+        
+        let notification = Notification(name: Notification.Name(rawValue: SELECTED_SEASON_NOTIFICATION), object: self, userInfo: userInfo)
+        notificationCenter.post(notification)
     }
 }

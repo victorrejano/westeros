@@ -32,16 +32,20 @@ class EpisodesListViewController: UITableViewController {
     }
     
     // MARK: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
         syncModelWithView()
+        setupObserverForNotifications()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeObserverForNotifications()
+    }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
@@ -55,11 +59,12 @@ class EpisodesListViewController: UITableViewController {
         // Instantiate if isn't initialized yet
         if episodeDetail == nil {
             episodeDetail = EpisodeDetailViewController(model: episode)
+            episodeDetail?.delegate = self
             navigationController?.pushViewController(episodeDetail!, animated: true)
             return
         }
         
-            episodeDetail?.model = episode
+        episodeDetail?.model = episode
         navigationController?.pushViewController(episodeDetail!, animated: true)
     }
 }
@@ -95,5 +100,38 @@ extension EpisodesListViewController {
         cell!.textLabel!.text = item.name
         
         return cell!
+    }
+}
+
+extension EpisodesListViewController {
+    
+    private func setupObserverForNotifications() {
+        
+        let notificationCenter = NotificationCenter.default
+        
+        notificationCenter.addObserver(self, selector: #selector(didSelectSeason), name: NSNotification.Name(rawValue: SELECTED_SEASON_NOTIFICATION), object: nil)
+    }
+    
+    private func removeObserverForNotifications(){
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func didSelectSeason(_ notification: Notification) {
+        
+        guard let userInfo = notification.userInfo,
+            let seasonSelected = userInfo[SEASON_KEY] as? Season else {
+                return
+        }
+        
+        model = seasonSelected
+    }
+}
+
+extension EpisodesListViewController: EpisodeDetailViewControllerDelegate {
+    func viewWasNotifiedSeasonChanged(_ episodeDetailViewController: EpisodeDetailViewController, season: Season) {
+        
+        model = season
     }
 }

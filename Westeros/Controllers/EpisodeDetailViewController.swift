@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EpisodeDetailViewControllerDelegate: class {
+    func viewWasNotifiedSeasonChanged(_ episodeDetailViewController: EpisodeDetailViewController, season: Season)
+}
+
 class EpisodeDetailViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,11 +24,12 @@ class EpisodeDetailViewController: UIViewController {
             syncModelWithView()
         }
     }
+    var delegate: EpisodeDetailViewControllerDelegate?
     
     // MARK: Initialization
     init(model: Episode) {
         self.model = model
-                super.init(nibName: "EpisodeDetailViewController", bundle: Bundle(for: type(of: self)))
+        super.init(nibName: "EpisodeDetailViewController", bundle: Bundle(for: type(of: self)))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,6 +42,14 @@ class EpisodeDetailViewController: UIViewController {
         title = "Episode detail"
         syncModelWithView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupObserverForNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeObserverForNotifications()
+    }
 }
 
 extension EpisodeDetailViewController {
@@ -45,5 +58,33 @@ extension EpisodeDetailViewController {
         titleLabel.text = model.name
         synopsisTextView.text = model.synopsis
         releaseDateLabel.text = model.airDate
+    }
+}
+
+extension EpisodeDetailViewController {
+    
+    private func setupObserverForNotifications() {
+        
+        let notificationCenter = NotificationCenter.default
+        
+        notificationCenter.addObserver(self, selector: #selector(didSelectSeason), name: NSNotification.Name(rawValue: SELECTED_SEASON_NOTIFICATION), object: nil)
+    }
+    
+    private func removeObserverForNotifications(){
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc private func didSelectSeason(_ notification: Notification) {
+        
+        guard let userInfo = notification.userInfo,
+            let seasonSelected = userInfo[SEASON_KEY] as? Season else {
+                return
+        }
+        
+        delegate?.viewWasNotifiedSeasonChanged(self, season: seasonSelected)
+        
+        navigationController?.popViewController(animated: true)
     }
 }

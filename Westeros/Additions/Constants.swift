@@ -11,9 +11,12 @@ import Foundation
 // MARK: - Notification
 let SELECTED_HOUSE_NOTIFICATION = "SelectedHouseNotification"
 let HOUSE_KEY = "HouseKey"
+let SELECTED_SEASON_NOTIFICATION = "SelectedSeasonNotification"
+let SEASON_KEY = "SeasonKey"
 
 // MARK: - UserDefaults
 let LAST_HOUSE_KEY = "LastHouseKey"
+let LAST_SEASON_KEY = "LastSeasonKey"
 
 // MARK: - Formats
 let FORMAT_DATE_TO_SHOW = "EEEE, MMM d, yyyy"
