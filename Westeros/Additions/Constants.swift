@@ -21,4 +21,5 @@ let FORMAT_TO_PARSE_DATE = "yyyy-MM-dd"
 
 // MARK: - UITableViewCell Identifiers
 let SEASON_LIST_CELL = "SeasonListCell"
+let EPISODE_LIST_CELL = "EpisodeListCell"
 

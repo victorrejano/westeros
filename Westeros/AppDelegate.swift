@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitVC.viewControllers = [houseListViewController.wrappedInNVC(), houseDetailViewController.wrappedInNVC()]
         */
         // TODO Seasons detail demo
+        /*
         // Repository data
         let seasons = Repository.local.seasons
         let seasonListViewController = SeasonListViewController(model: seasons)
@@ -39,14 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Asign delegate and detail view
         seasonListViewController.delegate = seasonDetailViewController
-        seasonListViewController.seasonDetailViewController = seasonDetailViewController
+        //seasonListViewController.seasonDetailViewController = seasonDetailViewController
         
         let splitVC = UISplitViewController()
         splitVC.viewControllers = [seasonListViewController.wrappedInNVC(), seasonDetailViewController.wrappedInNVC()]
         
         let rootVC = splitVC
- 
-        window?.rootViewController = rootVC
+        */
+        let season = Repository.local.seasons.first
+        let episodeList = EpisodesListViewController(model: season!)
+        window?.rootViewController = episodeList.wrappedInNVC()
         
         return true
     }

@@ -46,14 +46,16 @@ class SeasonListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Obtaining item
+        let item = model[indexPath.row]
         
-        return provideCellFor(indexPath.row)
+        return provideCellFor(season: item)
     }
 }
 
 extension SeasonListViewController {
     
-    private func provideCellFor(_ row: Int) -> UITableViewCell {
+    private func provideCellFor(season item: Season) -> UITableViewCell {
         // Restore cell or create if isn't available
         var cell = tableView.dequeueReusableCell(withIdentifier: SEASON_LIST_CELL)
         
@@ -62,8 +64,7 @@ extension SeasonListViewController {
         }
         
         // Set current item data to cell
-        let currentItem = model[row]
-        cell!.textLabel!.text = currentItem.name
+        cell!.textLabel!.text = item.name
         
         return cell!
     }
