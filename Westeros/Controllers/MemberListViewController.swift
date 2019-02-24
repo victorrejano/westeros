@@ -19,6 +19,7 @@ class MemberListViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var memberDetail: MemberDetailViewController!
     
     // MARK: Initialization
     init(model: [Person]) {
@@ -35,6 +36,7 @@ class MemberListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +92,35 @@ extension MemberListViewController {
             else {
                 return
         }
+        
+        self.model = house.members
+    }
+}
+
+extension MemberListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Obtain selected member
+        let member = model[indexPath.row]
+        
+        // Push detail view
+        if memberDetail == nil {
+            memberDetail = MemberDetailViewController(model: member)
+            memberDetail.delegate = self
+            
+            navigationController?.pushViewController(memberDetail!, animated: true)
+            return
+        }
+        
+        memberDetail.model = member
+        navigationController?.pushViewController(memberDetail, animated: true)
+    }
+}
+
+extension MemberListViewController: MemberDetailViewControllerDelegate {
+    
+    func viewWasNotifiedHouseChanged(_ memberDetailViewController: MemberDetailViewController, house: House) {
         
         self.model = house.members
     }

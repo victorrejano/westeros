@@ -17,6 +17,8 @@
 		57307B2C220A481900A70843 /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57307B2A220A481900A70843 /* HouseDetailViewController.xib */; };
 		57539A7B222155A20046D6FD /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57539A79222155A20046D6FD /* EpisodeDetailViewController.swift */; };
 		57539A7C222155A20046D6FD /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57539A7A222155A20046D6FD /* EpisodeDetailViewController.xib */; };
+		57539A7F2222CB300046D6FD /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57539A7D2222CB300046D6FD /* MemberDetailViewController.swift */; };
+		57539A802222CB300046D6FD /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57539A7E2222CB300046D6FD /* MemberDetailViewController.xib */; };
 		576BC4FC221B2DAC00053F98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BC4FB221B2DAC00053F98 /* Constants.swift */; };
 		57710A0D220B5510005E5708 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */; };
 		57710A0F220B705C005E5708 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57710A0E220B705C005E5708 /* RepositoryTests.swift */; };
@@ -65,6 +67,8 @@
 		57307B2A220A481900A70843 /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
 		57539A79222155A20046D6FD /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		57539A7A222155A20046D6FD /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
+		57539A7D2222CB300046D6FD /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		57539A7E2222CB300046D6FD /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
 		576BC4FB221B2DAC00053F98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		57710A0E220B705C005E5708 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				5719C86E221F2B0E002CFD11 /* EpisodesListViewController.xib */,
 				57539A79222155A20046D6FD /* EpisodeDetailViewController.swift */,
 				57539A7A222155A20046D6FD /* EpisodeDetailViewController.xib */,
+				57539A7D2222CB300046D6FD /* MemberDetailViewController.swift */,
+				57539A7E2222CB300046D6FD /* MemberDetailViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				57981B4F220392A3000BE391 /* Assets.xcassets in Resources */,
 				5719C868221DCA9D002CFD11 /* SeasonDetailViewController.xib in Resources */,
 				57867B32220CCDC200741B04 /* HouseListViewController.xib in Resources */,
+				57539A802222CB300046D6FD /* MemberDetailViewController.xib in Resources */,
 				57867B2E220CAD8700741B04 /* WikiViewController.xib in Resources */,
 				57867B36220CE66200741B04 /* MemberListViewController.xib in Resources */,
 				57307B2C220A481900A70843 /* HouseDetailViewController.xib in Resources */,
@@ -342,6 +349,7 @@
 				57981B48220392A0000BE391 /* AppDelegate.swift in Sources */,
 				57867B2D220CAD8700741B04 /* WikiViewController.swift in Sources */,
 				57B03C812205EF460014AB51 /* Person.swift in Sources */,
+				57539A7F2222CB300046D6FD /* MemberDetailViewController.swift in Sources */,
 				5719C86B221DD042002CFD11 /* SeasonListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
