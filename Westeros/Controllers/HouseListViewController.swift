@@ -22,7 +22,7 @@ class HouseListViewController: UITableViewController {
     init(model: [House]) {
         self.model = model
         super.init(nibName: nil, bundle: Bundle(for:type(of: self)))
-        title = "Westeros"
+        title = "Houses"
     }
     
     required init?(coder aDecoder: NSCoder) {
