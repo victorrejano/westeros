@@ -16,11 +16,7 @@ class HouseDetailViewController: UIViewController {
     @IBOutlet weak var houseWordsLabel: UILabel!
     
     // MARK: Properties
-    var model: House {
-        didSet {
-            syncModelWithView()
-        }
-    }
+    var model: House!
     
     // MARK: Initialization
     init(model: House) {
@@ -32,10 +28,14 @@ class HouseDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         syncModelWithView()
-        setupUI()
     }
     
     private func syncModelWithView(){
@@ -69,5 +69,6 @@ class HouseDetailViewController: UIViewController {
 extension HouseDetailViewController: HouseListViewControllerDelegate {
     func houseListViewController(_ controller: HouseListViewController, didSelectHouse houseSelected: House) {
         self.model = houseSelected
+        syncModelWithView()
     }
 }

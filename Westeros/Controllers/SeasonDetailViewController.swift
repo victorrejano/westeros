@@ -11,11 +11,7 @@ import UIKit
 class SeasonDetailViewController: UIViewController {
 
     // MARK: Properties
-    var model: Season {
-        didSet {
-            syncModelWithView()
-        }
-    }
+    var model: Season!
     var episodesList: EpisodesListViewController?
     
     // MARK: - Outlets
@@ -39,8 +35,11 @@ class SeasonDetailViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         syncModelWithView()
     }
     
@@ -64,6 +63,7 @@ extension SeasonDetailViewController: SeasonListViewControllerDelegate {
     func didSelectSeason(_ controller: SeasonListViewController, model: Season) {
         
         self.model = model
+        syncModelWithView()
     }
 }
 

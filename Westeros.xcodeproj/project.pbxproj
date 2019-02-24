@@ -19,6 +19,7 @@
 		57539A7C222155A20046D6FD /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57539A7A222155A20046D6FD /* EpisodeDetailViewController.xib */; };
 		57539A7F2222CB300046D6FD /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57539A7D2222CB300046D6FD /* MemberDetailViewController.swift */; };
 		57539A802222CB300046D6FD /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57539A7E2222CB300046D6FD /* MemberDetailViewController.xib */; };
+		57539A822222FEA60046D6FD /* AppDelegate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57539A812222FEA60046D6FD /* AppDelegate+Extensions.swift */; };
 		576BC4FC221B2DAC00053F98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BC4FB221B2DAC00053F98 /* Constants.swift */; };
 		57710A0D220B5510005E5708 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */; };
 		57710A0F220B705C005E5708 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57710A0E220B705C005E5708 /* RepositoryTests.swift */; };
@@ -69,6 +70,7 @@
 		57539A7A222155A20046D6FD /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		57539A7D2222CB300046D6FD /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
 		57539A7E2222CB300046D6FD /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
+		57539A812222FEA60046D6FD /* AppDelegate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extensions.swift"; sourceTree = "<group>"; };
 		576BC4FB221B2DAC00053F98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57710A0C220B5510005E5708 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		57710A0E220B705C005E5708 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				576BC4FB221B2DAC00053F98 /* Constants.swift */,
 				57D90D21221C87E400A49040 /* Date+Format.swift */,
 				57D90D23221C8D4A00A49040 /* String+Date.swift */,
+				57539A812222FEA60046D6FD /* AppDelegate+Extensions.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				57710A0D220B5510005E5708 /* UIViewController+Navigation.swift in Sources */,
 				57307B2B220A481900A70843 /* HouseDetailViewController.swift in Sources */,
 				57D90D1C221C72DE00A49040 /* Season.swift in Sources */,
+				57539A822222FEA60046D6FD /* AppDelegate+Extensions.swift in Sources */,
 				57B03C7D2205EC970014AB51 /* Sigil.swift in Sources */,
 				57867B35220CE66200741B04 /* MemberListViewController.swift in Sources */,
 				57D90D20221C782800A49040 /* Episode.swift in Sources */,

@@ -38,14 +38,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         seasonDetail = SeasonDetailViewController(model: seasons.first!)
         houseDetail = HouseDetailViewController(model: houses.first!)
         
-        // Asign delegates
-        tabBarController.delegate = self
-        seasonList.delegate = seasonDetail
-        houseList.delegate = houseDetail
-        
         // Add views to root controller
         rootViewController = UISplitViewController()
         rootViewController.viewControllers = [tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
+        
+        // Add small screens navigation compatibility
+        rootViewController.delegate = self
+        rootViewController.preferredDisplayMode = .allVisible
+        
+        // Check screen
+        if UIDevice.current.userInterfaceIdiom != .phone {
+            
+            tabBarController.delegate = self
+            // Asign delegates
+            seasonList.delegate = seasonDetail
+            houseList.delegate = houseDetail
+            
+        } else {
+            seasonList.delegate = self
+            houseList.delegate = self
+        }
         
         window?.rootViewController = rootViewController
         
@@ -53,16 +65,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if viewController == houseList {
-            rootViewController.viewControllers = [tabBarController.wrappedInNVC(), houseDetail.wrappedInNVC()]
-        } else if viewController == seasonList {
-            rootViewController.viewControllers = [
-                tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
-        }
-    }
-    
-}
+
 
