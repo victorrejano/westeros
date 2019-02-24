@@ -10,6 +10,10 @@ import Foundation
 
 typealias Words = String
 
+enum HouseType: String {
+    case Stark = "Stark", Lannister = "Lannister", Targaryen = "Targaryen", Baratheon = "Baratheon", Greyjoy = "Greyjoy", Martell = "Martell"
+}
+
 final class House {
     typealias Members = Set<Person>
     

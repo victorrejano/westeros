@@ -52,19 +52,13 @@ class HouseTests: XCTestCase {
     }
 
     func testHouseAddPerson() {
-        XCTAssertEqual(starkHouse.count, 0)
+        let mockHouse = House(name: "MockHouse", sigil: starkSigil, words: "", wikiURL: URL(fileURLWithPath: ""))
         
-        starkHouse.add(person: aryaPerson)
-        XCTAssertEqual(starkHouse.count, 1)
+        mockHouse.add(person: aryaPerson)
+        XCTAssertEqual(mockHouse.count, 0)
         
-        starkHouse.add(person: robbPerson)
-        XCTAssertEqual(starkHouse.count, 2)
-        
-        starkHouse.add(person: robbPerson)
-        XCTAssertEqual(starkHouse.count, 2)
-        
-        starkHouse.add(person: tyrionPerson)
-        XCTAssertEqual(starkHouse.count, 2)
+        let _ = Person(name: "Mocker", alias: "King of mocks", house: mockHouse)
+        XCTAssertEqual(mockHouse.count, 1)
     }
     
     func testHousesAddPerson() {

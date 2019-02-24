@@ -64,6 +64,10 @@ extension LocalFactory: HouseFactory {
     func houses(filteredBy filter: HouseFilter) -> [House] {
         return houses.filter(filter)
     }
+    
+    func house(named type: HouseType) -> House? {
+        return houses.first { $0.name == type.rawValue}
+    }
 }
 
 extension LocalFactory: SeasonFactory {

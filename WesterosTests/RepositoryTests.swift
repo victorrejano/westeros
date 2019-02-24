@@ -10,7 +10,7 @@ import XCTest
 @testable import Westeros
 
 class RepositoryTests: XCTestCase {
-
+    
     // MARK: Properties
     var houses: [House]!
     var house: House!
@@ -24,10 +24,10 @@ class RepositoryTests: XCTestCase {
         seasons = Repository.local.seasons
         season = seasons.first
     }
-
+    
     override func tearDown() {
     }
-
+    
     func testLocalRepositoryExistence() {
         XCTAssertNotNil(Repository.local)
     }
@@ -43,7 +43,7 @@ class RepositoryTests: XCTestCase {
     func testLocalRepositoryHousesSorted() {
         XCTAssertEqual(houses, houses.sorted())
     }
-
+    
     func testLocalRepositoryHouseByName() {
         let searchHouse = Repository.local.house(named: "stArk")
         XCTAssertNotNil(searchHouse)
@@ -78,5 +78,16 @@ class RepositoryTests: XCTestCase {
         }
         
         XCTAssertEqual(filteredSeasons.count, 1)
+    }
+    
+    func testLocalRepositoryHouseByNameTypeSafe() {
+        
+        // Find Stark house
+        let starkHouse = Repository.local.house(named: .Stark)
+        XCTAssertNotNil(starkHouse)
+        
+        // Search Baratheon house
+        let baratheonHouse = Repository.local.house(named: .Baratheon)
+        XCTAssertNil(baratheonHouse)
     }
 }
