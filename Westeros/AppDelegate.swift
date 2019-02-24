@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    // MARK: Properties
     var window: UIWindow?
     var tabBarController: UITabBarController!
     var seasonList: SeasonListViewController!
@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController = UITabBarController()
         tabBarController.viewControllers = [seasonList, houseList]
         
-        seasonDetail = SeasonDetailViewController(model: seasons.first!)
-        houseDetail = HouseDetailViewController(model: houses.first!)
+        seasonDetail = SeasonDetailViewController(model: defaultSeason)
+        houseDetail = HouseDetailViewController(model: defaultHouse)
         
         // Add views to root controller
         rootViewController = UISplitViewController()

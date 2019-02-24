@@ -45,3 +45,17 @@ extension AppDelegate: HouseListViewControllerDelegate {
         controller.navigationController?.pushViewController(houseDetail, animated: true)
     }
 }
+
+extension AppDelegate {
+    var defaultSeason: Season {
+        let userDefaults = UserDefaults.standard
+        let indexSeason = userDefaults.integer(forKey: LAST_SEASON_KEY)
+        return Repository.local.seasons[indexSeason]
+    }
+    
+    var defaultHouse: House {
+        let userDefaults = UserDefaults.standard
+        let indexHouse = userDefaults.integer(forKey: LAST_HOUSE_KEY)
+        return Repository.local.houses[indexHouse]
+    }
+}

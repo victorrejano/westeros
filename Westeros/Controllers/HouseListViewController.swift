@@ -83,13 +83,6 @@ class HouseListViewController: UITableViewController {
         
         // save user selection
         saveLastHouseSelected(at: indexPath.row)
-        /*
-         
-         let detailsVC = HouseDetailViewController(model: selectedModel)
-         
-         navigationController?.pushViewController(detailsVC, animated: true)
-         */
-        
     }
 }
 

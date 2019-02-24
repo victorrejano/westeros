@@ -78,6 +78,8 @@ extension SeasonListViewController {
         
         // notify event
         notifyDidSelectSeason(selected: selectedModel)
+        
+        saveLastSeasonSelected(at: indexPath.row)
     }
     
     private func notifyDidSelectSeason(selected: Season) {
@@ -87,5 +89,15 @@ extension SeasonListViewController {
         
         let notification = Notification(name: Notification.Name(rawValue: SELECTED_SEASON_NOTIFICATION), object: self, userInfo: userInfo)
         notificationCenter.post(notification)
+    }
+}
+
+extension SeasonListViewController {
+    private func saveLastSeasonSelected(at index: Int) {
+        
+        // Store index
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(index, forKey: LAST_SEASON_KEY)
+        userDefaults.synchronize()
     }
 }
