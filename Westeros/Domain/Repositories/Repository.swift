@@ -13,6 +13,8 @@ protocol HouseFactory {
     var houses: [House] { get }
     
     func house(named: String) -> House?
+    
+    func house(named: HouseType) -> House?
 }
 
 protocol SeasonFactory {
@@ -66,7 +68,7 @@ extension LocalFactory: HouseFactory {
     }
     
     func house(named type: HouseType) -> House? {
-        return houses.first { $0.name == type.rawValue}
+        return house(named: type.rawValue)
     }
 }
 
