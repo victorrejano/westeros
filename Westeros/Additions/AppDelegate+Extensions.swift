@@ -13,9 +13,9 @@ extension AppDelegate: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         if viewController == houseList {
-            rootViewController.showDetailViewController(houseDetail.wrappedInNVC(), sender: self)
+            rootViewController.showDetailViewController(houseDetail, sender: self)
         } else if viewController == seasonList {
-            rootViewController.showDetailViewController(seasonDetail.wrappedInNVC(), sender: self)
+            rootViewController.showDetailViewController(seasonDetail, sender: self)
         }
     }
 }
@@ -29,9 +29,12 @@ extension AppDelegate: UISplitViewControllerDelegate {
 extension AppDelegate: SeasonListViewControllerDelegate {
     func didSelectSeason(_ controller: SeasonListViewController, model: Season) {
         
-        seasonDetail.model = model
-        
-        controller.navigationController?.pushViewController(seasonDetail, animated: true)
+        if let viewController = seasonDetail.viewControllers.first as? SeasonDetailViewController {
+            
+            viewController.model = model
+            
+            controller.navigationController?.pushViewController(seasonDetail, animated: true)
+        }
     }
     
     
@@ -40,9 +43,12 @@ extension AppDelegate: SeasonListViewControllerDelegate {
 extension AppDelegate: HouseListViewControllerDelegate {
     func houseListViewController(_ controller: HouseListViewController, didSelectHouse houseSelected: House) {
         
-        houseDetail.model = houseSelected
-        
-        controller.navigationController?.pushViewController(houseDetail, animated: true)
+        if let viewController = houseDetail.viewControllers.first as? HouseDetailViewController {
+            
+            viewController.model = houseSelected
+            
+            controller.navigationController?.pushViewController(houseDetail, animated: true)
+        }
     }
 }
 

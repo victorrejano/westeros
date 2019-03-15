@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarController: UITabBarController!
     var seasonList: SeasonListViewController!
     var houseList: HouseListViewController!
-    var seasonDetail: SeasonDetailViewController!
-    var houseDetail: HouseDetailViewController!
+    var seasonDetail: UINavigationController!
+    var houseDetail: UINavigationController!
     var rootViewController: UISplitViewController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -35,29 +35,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController = UITabBarController()
         tabBarController.viewControllers = [seasonList, houseList]
         
-        seasonDetail = SeasonDetailViewController(model: defaultSeason)
-        houseDetail = HouseDetailViewController(model: defaultHouse)
-        
-        // Add views to root controller
-        rootViewController = UISplitViewController()
-        rootViewController.viewControllers = [tabBarController, seasonDetail.wrappedInNVC()]
-        
-        // Add small screens navigation compatibility
-        rootViewController.delegate = self
-        rootViewController.preferredDisplayMode = .allVisible
+        let seasonDetailViewController = SeasonDetailViewController(model: defaultSeason)
+        let houseDetailViewController = HouseDetailViewController(model: defaultHouse)
         
         // Check screen
         if UIDevice.current.userInterfaceIdiom != .phone {
             
             tabBarController.delegate = self
             // Asign delegates
-            seasonList.delegate = seasonDetail
-            houseList.delegate = houseDetail
+            seasonList.delegate = seasonDetailViewController
+            houseList.delegate = houseDetailViewController
             
         } else {
             seasonList.delegate = self
             houseList.delegate = self
         }
+        
+        // Wrap detail view controllers in navigation controller
+        seasonDetail = seasonDetailViewController.wrappedInNVC()
+        houseDetail = houseDetailViewController.wrappedInNVC()
+        
+        // Add views to root controller
+        rootViewController = UISplitViewController()
+        rootViewController.viewControllers = [tabBarController, seasonDetail]
+        
+        // Add small screens navigation compatibility
+        rootViewController.delegate = self
+        rootViewController.preferredDisplayMode = .allVisible
         
         window?.rootViewController = rootViewController
         
