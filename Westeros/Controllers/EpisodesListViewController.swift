@@ -19,8 +19,6 @@ class EpisodesListViewController: UITableViewController {
         return model.episodes
     }
     
-    var episodeDetail: EpisodeDetailViewController?
-    
     // MARK: Initialization
     init(model: Season) {
         self.model = model
@@ -56,16 +54,11 @@ class EpisodesListViewController: UITableViewController {
         let episode = episodes[indexPath.row]
         
         // Push detail view
-        // Instantiate if isn't initialized yet
-        if episodeDetail == nil {
-            episodeDetail = EpisodeDetailViewController(model: episode)
-            episodeDetail?.delegate = self
-            navigationController?.pushViewController(episodeDetail!, animated: true)
-            return
-        }
+        let episodeDetail = EpisodeDetailViewController(model: episode)
+        episodeDetail.delegate = self
         
-        episodeDetail?.model = episode
-        navigationController?.pushViewController(episodeDetail!, animated: true)
+        episodeDetail.model = episode
+        navigationController?.pushViewController(episodeDetail, animated: true)
     }
 }
 

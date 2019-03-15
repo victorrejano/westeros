@@ -12,7 +12,6 @@ class SeasonDetailViewController: UIViewController {
 
     // MARK: Properties
     var model: Season!
-    var episodesList: EpisodesListViewController?
     
     // MARK: - Outlets
     @IBOutlet weak var seasonNameLabel: UILabel!
@@ -69,13 +68,10 @@ extension SeasonDetailViewController: SeasonListViewControllerDelegate {
 
 extension SeasonDetailViewController {
     @objc func displayEpisodes() {
-        if episodesList == nil {
-            episodesList = EpisodesListViewController(model: model)
-            navigationController?.pushViewController(episodesList!, animated: true)
-            return
-        }
         
-        episodesList?.model = model
-        navigationController?.pushViewController(episodesList!, animated: true)
+        let episodesList = EpisodesListViewController(model: model)
+
+        episodesList.model = model
+        navigationController?.pushViewController(episodesList, animated: true)
     }
 }
