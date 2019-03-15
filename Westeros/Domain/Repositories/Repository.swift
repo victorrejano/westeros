@@ -126,7 +126,7 @@ extension LocalFactory: SeasonFactory {
             }
         }
         
-        return result
+        return result.sorted()
     }
     
     func seasons(filteredBy customFilter: SeasonFilter) -> [Season] {
