@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Add views to root controller
         rootViewController = UISplitViewController()
-        rootViewController.viewControllers = [tabBarController.wrappedInNVC(), seasonDetail.wrappedInNVC()]
+        rootViewController.viewControllers = [tabBarController, seasonDetail.wrappedInNVC()]
         
         // Add small screens navigation compatibility
         rootViewController.delegate = self
